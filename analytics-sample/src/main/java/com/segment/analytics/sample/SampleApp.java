@@ -2,6 +2,7 @@ package com.segment.analytics.sample;
 
 import android.app.Application;
 import com.segment.analytics.Analytics;
+import com.segment.analytics.Options;
 
 public class SampleApp extends Application {
 
@@ -21,5 +22,8 @@ public class SampleApp extends Application {
 
     // Now anytime you call Analytics.with, the custom instance will be returned.
     Analytics.with(this).track("App Launched");
+
+    Analytics.with(this).track("Button A Clicked", null,
+            new Options().setIntegration(Analytics.BundledIntegration.MIXPANEL, false));
   }
 }
